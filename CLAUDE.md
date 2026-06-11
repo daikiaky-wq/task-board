@@ -4,17 +4,52 @@
 
 Vite + React で構築したタスク管理ボードアプリケーション。
 
+### デプロイ先
+
+**https://daikiaky-wq.github.io/task-board/**
+
+`main` ブランチへの push で GitHub Actions が自動ビルド＆デプロイする。
+
 ### 技術スタック
-- React 18
-- Vite 8
-- CSS (vanilla)
+
+| 種別 | 技術 | バージョン |
+|------|------|-----------|
+| UI ライブラリ | React | 18 |
+| ビルドツール | Vite | 8 |
+| スタイリング | CSS (vanilla) | — |
+| CI/CD | GitHub Actions | — |
+| ホスティング | GitHub Pages | — |
+| 状態永続化 | localStorage | ブラウザ標準 |
 
 ### 起動方法
 ```
 npm install
 npm run dev   # 開発サーバー (http://localhost:5173)
-npm run build # プロダクションビルド
+npm run build # プロダクションビルド → dist/
+npm run preview # ビルド成果物をローカルでプレビュー
 ```
+
+### ファイル構成
+
+```
+src/
+  main.jsx      # エントリーポイント
+  App.jsx       # ルートコンポーネント（状態管理・ロジック）
+  App.css       # App コンポーネントのスタイル
+  index.css     # グローバルスタイル（body, リセット）
+.github/
+  workflows/
+    deploy.yml  # GitHub Pages 自動デプロイワークフロー
+```
+
+### コンポーネント命名規約
+
+- **コンポーネントファイル名・関数名**: PascalCase（例: `TaskItem.jsx`, `export default function TaskItem`）
+- **CSS クラス名**: kebab-case（例: `.task-item`, `.add-btn`, `.delete-btn`）
+- **props・変数名**: camelCase（例: `onToggle`, `isCompleted`）
+- **定数**: UPPER_SNAKE_CASE（例: `STORAGE_KEY`）
+- **コンポーネントは 1 ファイル 1 コンポーネント** を原則とする
+- **ファイル配置**: `src/components/` 配下にコンポーネントを置く（現在は App.jsx に集約）
 
 ---
 
