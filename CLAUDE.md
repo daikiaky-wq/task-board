@@ -2,7 +2,19 @@
 
 ## プロジェクト概要
 
-タスク管理ボードアプリケーション。
+Vite + React で構築したタスク管理ボードアプリケーション。
+
+### 技術スタック
+- React 18
+- Vite 8
+- CSS (vanilla)
+
+### 起動方法
+```
+npm install
+npm run dev   # 開発サーバー (http://localhost:5173)
+npm run build # プロダクションビルド
+```
 
 ---
 
